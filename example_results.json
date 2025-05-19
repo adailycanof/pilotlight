@@ -1,0 +1,89 @@
+# Example results.json for EKS Cluster Health Check
+{
+  "cluster": {
+    "status": "ACTIVE",
+    "version": "1.25",
+    "endpoint": "https://EXAMPLEA1B2C3D4E5F6.gr7.us-west-2.eks.amazonaws.com"
+  },
+  "nodegroups": [
+    {
+      "name": "standard-workers",
+      "status": "ACTIVE",
+      "desiredSize": 3
+    },
+    {
+      "name": "gpu-workers",
+      "status": "ACTIVE",
+      "desiredSize": 2
+    }
+  ],
+  "kubernetesVersion": "1.25",
+  "coreSystemPods": [
+    {
+      "name": "aws-node-abcd1",
+      "namespace": "kube-system",
+      "status": "Running",
+      "ready": true
+    },
+    {
+      "name": "aws-node-efgh2",
+      "namespace": "kube-system",
+      "status": "Running",
+      "ready": true
+    },
+    {
+      "name": "coredns-1234567-abcd",
+      "namespace": "kube-system",
+      "status": "Running",
+      "ready": true
+    },
+    {
+      "name": "coredns-1234567-efgh",
+      "namespace": "kube-system",
+      "status": "Running",
+      "ready": true
+    },
+    {
+      "name": "kube-proxy-abcd",
+      "namespace": "kube-system",
+      "status": "Running",
+      "ready": true
+    }
+  ],
+  "rbac": {
+    "roleBindings": 45,
+    "clusterRoleBindings": 67
+  },
+  "networking": {
+    "cni": {
+      "desired": 5,
+      "ready": 5
+    },
+    "coredns": {
+      "desired": 2,
+      "ready": 2
+    }
+  },
+  "autoscaler": [
+    {
+      "name": "cluster-autoscaler-abc123",
+      "status": "Running"
+    }
+  ],
+  "ingressController": [
+    {
+      "namespace": "ingress-nginx",
+      "name": "ingress-nginx-controller-abc123",
+      "status": "Running"
+    }
+  ],
+  "security": {
+    "podSecurityPolicies": "N/A",
+    "networkPolicies": {
+      "default": 1,
+      "kube-system": 0,
+      "production": 3,
+      "development": 2
+    }
+  }
+}
